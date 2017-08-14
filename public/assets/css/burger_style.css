@@ -14,6 +14,13 @@ h2 {
 .row {
 	width: 81%;
 	display: inline-block;
+	margin-left: 340px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .col-1 {width: 8.33%;}
@@ -34,25 +41,39 @@ h2 {
    
 }
 
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+.new {
+	background-color: white;
+	margin: 0px 0px 20px 0px;
+	height: 30px;
+	padding-top: 10px;
 }	
 
-ol {
-	
+
+.eaten {
+	background-color: white;
+}
+
+
+#devour_b {
+	margin-top: 15px;
+	margin-bottom: 21px;
+	width: 75px;
+	height: 25px;
+}
+
+.eaten-block {
+	margin-left: 20px;
+	background-color: white;
+	color: grey;
+	height: 155px;
 	overflow: auto;
-	background-color: white;
-	color: grey;
+
 }
 
-li {
-	height: 35px;
-	background-color: white;
-	color: grey;
-	border: 1px grey solid;
-	
-	
+.create {
+	margin-top: 10px;
 }
 
+#query {
+	background-color: #FDF38C;
+}

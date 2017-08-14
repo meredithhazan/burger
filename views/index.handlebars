@@ -2,40 +2,41 @@
 
 <h2>Eat-Da-Burger!</h2>
 
-	<div class="row">
-		<div class="col-5 burger-block">
-			<ol class="menu">
-				{{#each burgers}}
-					{{#unless this.devoured}}
-						<li>
-							{{this.burger_name}}
-						</li>	
-					{{/unless}}
-				{{/each}}
-			</ol>
-		</div>	
-		<div class="col-1 button-block">
-			{{#each burgers}}
-				{{#unless this.devoured}}
-					<form id="devour_b" action="/{{this.id}}?_method=PUT" method="POST">
-						<input type="hidden" name="devoured" value="true">
-						<button type="submit">Devour it!</button>
-					</form>				
-				{{/unless}}
-			{{/each}}
-		</div>
-		<div class="col-5 eaten-block">
-			<ol class="eaten">
-				{{#each burgers}}
-					{{#if this.devoured}}
-						<li>
-							{{this.burger_name}}
-						</li>
-					{{/if}}
-				{{/each}}
-			</ol>
-		</div>
+<div class="row">
+	<div class="col-3 burger-block">
+		{{#each burgers}}
+			{{#unless this.devoured}}
+				
+					<p class="new">
+						{{this.id}}. {{this.burger_name}}
+					</p>
+					
+				
+			{{/unless}}
+		{{/each}}
 	</div>	
+	<div class="col-1 button-block">
+		{{#each burgers}}
+			{{#unless this.devoured}}
+				<form action="/{{this.id}}?_method=PUT" method="POST">
+					<input type="hidden" name="devoured" value="true">
+					<button id="devour_b" type="submit">Devour it!</button>
+				</form>				
+			{{/unless}}
+		{{/each}}
+	</div>
+	<div class="col-3 eaten-block">
+		
+			{{#each burgers}}
+				{{#if this.devoured}}
+					<p class="eaten">
+						{{this.id}}. {{this.burger_name}}
+					</p><hr/>
+				{{/if}}
+			{{/each}}
+		
+	</div>
+</div>	
 
 
 <form class="create" action="/" method="POST">
@@ -43,7 +44,7 @@
 	<div class="form-group">
 		<textarea name="burger_name" rows="7" cols="60"></textarea>
 	</div>
-	<button id="new" type="submit">Submit</button>
-	<p>Enter a burger you want to eat. Click the "submit" button.</p>	
+	<button id="sub" type="submit">Submit</button>
+	<p id="query">Enter a burger you want to eat. Click the "submit" button.</p>	
 </form>	
 
